@@ -5,8 +5,8 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 
 
-Route::group(['api'], function () {
+Route::middleware('auth:sanctum')->group(function () {
 
 Route::apiResource('products', ProductController::class);
 Route::apiResource('orders', OrderController::class);
-})->middleware(['auth', 'verified']);
+});
